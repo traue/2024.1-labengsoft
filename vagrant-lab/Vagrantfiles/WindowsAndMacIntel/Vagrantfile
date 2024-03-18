@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "eurolinux-vagrant/centos-stream-9"
+     config.vm.network "private_network", ip: "192.168.56.28"
+     config.vm.network "public_network"
+     config.vm.provider "virtualbox" do |vb|
+       vb.memory = "1024"
+     end
+     config.vm.provision "shell", inline: <<-SHELL
+       yum install httpd wget unzip vim -y
+       systemctl start httpd
+       systemctl enabled httpd
+       mkdir -p /tmp/site
+       cd /tmp/site
+       wget https://github.com/traue/2024.1-labengsoft/raw/main/vagrant-lab/labeng_site.zip
+       unzip -o labeng_site.zip
+       cp -r labeng_site/* /var/www/html/
+       systemctl restart httpd
+       cd /tmp/
+       rm -rf /tmp/site
+     SHELL
+  end
+  
