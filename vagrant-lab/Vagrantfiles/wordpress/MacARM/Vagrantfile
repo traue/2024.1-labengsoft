@@ -42,7 +42,6 @@ Vagrant.configure("2") do |config|
             Require all granted
         </Directory>
     </VirtualHost>
-
 EOT
 
       sudo a2ensite wordpress
