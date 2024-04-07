@@ -1,4 +1,4 @@
-# Basic Commands
+# Comandos básicos
 systemctl status docker
 docker run hello-world
 
@@ -6,7 +6,7 @@ docker images
 docker ps
 docker ps -a
 
-# Run a container
+# Executar um Contêiner
 docker run --name web01 -d -p 9080:80 nginx
 docker ps
 docker inspect web01
@@ -15,14 +15,14 @@ curl http://172.17.0.2:80
 ip addr show
 docker ps
 
-# Go to browser enter IP:HostPort
+# Abrir o browser e digitar Ip:HostPort
 
-# Building an Image
+# Construir uma imagem
 mkdir images
 cd images/
 vim Dockerfile
 
-# Paste below content
+# Cole o seguinte trecho de código
 FROM ubuntu:latest AS BUILD_IMAGE
 RUN apt update && apt install wget unzip -y
 RUN wget https://github.com/traue/2024.1-labengsoft/raw/main/vagrant-lab/labeng_site.zip
@@ -40,12 +40,12 @@ VOLUME /var/log/apache2
 WORKDIR /var/www/html/
 EXPOSE 80
 
-# Build Image
-docker build -t tesimg .
+# Construa a imagem
+docker build -t testimg .
 docker images
 
-# Run container from our Image
-docker run -P -d tesimg
+# Execução do contêiner a partir de nossa imagem
+docker run -P -d testimg
 docker ps
 
 
@@ -53,14 +53,14 @@ docker ps
 ip addr show
 docker ps
 
-# Go to browser enter IP:HostPort
+# Abrir o browser e digitar Ip:HostPort
 
 
-# CLEAN UP
+# Limpeza
 docker ps
-docker stop web01 heuristic_hugle
+docker stop web01 
 docker ps -a
-docker rm heuristic_hugle web01 competent_gates elastic_ramanujan relaxed_sammet
+docker rm web01
 clear
 docker images
 docker rmi <ids...>
