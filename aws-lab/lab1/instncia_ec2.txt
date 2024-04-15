@@ -1,0 +1,30 @@
+- Name: web01
+   - Tags: WebServer, Projetct, Lab. Eng. Soft.
+- AMI: Ubuntu
+- Instance Type: t2.micro (vide: https://aws.amazon.com/pt/ec2/instance-types/) 
+- Key pair: 
+   - Create a new key pair
+    - Key pair name: web-dev-key
+    - Key pair type: RSA
+    - Private key format: .pem
+    - Guarde o arquivo baixado
+- Network settings (edit):
+   - Security group name: web-sg
+   - Description: webserver security group
+   - Inbound security group rules:
+      - Type: SSH
+      - Source type: My IP (por enquanto)
+      Add rule:
+         - Type: HTTP (porta 80)
+         - Source type: Anywhere
+- Configure storage: (default)
+- Advanced details: 
+   - User data: 
+
+#!/bin/bash
+sudo apt update
+sudo apt install apache2 wget unzip -y
+wget https://github.com/traue/2024.1-labengsoft/raw/main/vagrant-lab/labeng_site.zip
+unzip labeng_site.zip
+sudo cp -r labeng_site/* /var/www/html/
+sudo systemctl restart apache2
