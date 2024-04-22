@@ -10,7 +10,7 @@ docker ps -a
 docker run --name web01 -d -p 9080:80 nginx
 docker ps
 docker inspect web01
-curl http://172.17.0.2:80
+curl http://<seuip>>:80
 
 ip addr show
 docker ps
@@ -29,7 +29,7 @@ RUN wget https://github.com/traue/2024.1-labengsoft/raw/main/vagrant-lab/labeng_
 RUN unzip labeng_site.zip && cd labeng_site && tar -czf labEngSoft.tgz * && mv labEngSoft.tgz /root/labEngSoft.tgz
 
 FROM ubuntu:latest
-LABEL "project"="Marketing"
+LABEL "project"="labengsoft"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install apache2 git wget -y
