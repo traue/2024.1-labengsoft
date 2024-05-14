@@ -13,6 +13,12 @@ Prof. Thiago G. Traue (thiago.traue@mackenzie.br)
 Os artefatos utililizados em aula ficam no moodle da disciplina, NESTE LINK (em breve).
 
 
+## Projeto VProfile
+
+Durante a disciplina usamos o projeto VProfile, de outro autor. Você em alguns laboratórios precisaremos de um repositório somente com este projeto. Você pode utilizar este link: [https://github.com/traue/vprofile]
+
+Ou clonar o repositório acima para um próprio.
+
 ## Bibliografia da disciplina
 
 **BIBLIOGRAFIA BÁSICA**
